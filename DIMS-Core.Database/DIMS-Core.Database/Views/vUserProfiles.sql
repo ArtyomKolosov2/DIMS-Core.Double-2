@@ -1,6 +1,6 @@
 ﻿CREATE VIEW [dbo].[vUserProfiles]
     AS SELECT
-	UserProfiles.UserId,
+    UserProfiles.UserId,
         (UserProfiles.FirstName + ' ' + UserProfiles.LastName) as FullName,
         UserProfiles.Email,
         Directions.Name as Direction,
