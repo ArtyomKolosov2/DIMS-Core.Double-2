@@ -6,7 +6,7 @@
 	Tasks.[Description],
 	Tasks.StartDate,
 	Tasks.EndDate as DeadlineDate,
-	TaskStates.StateName as [State]
+	TaskStates.StateName as State
 
 FROM [UserTasks] 
 	INNER JOIN [Tasks] ON Tasks.TaskId = UserTasks.TaskId
