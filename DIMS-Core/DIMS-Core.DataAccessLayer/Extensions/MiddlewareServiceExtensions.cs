@@ -1,4 +1,4 @@
-﻿using DIMS_Core.DataAccessLayer.Interfaces;
+using DIMS_Core.DataAccessLayer.Interfaces;
 using DIMS_Core.DataAccessLayer.Models;
 using DIMS_Core.DataAccessLayer.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -14,6 +14,7 @@ namespace DIMS_Core.DataAccessLayer.Extensions
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IRepository<Direction>, DirectionRepository>();
             services.AddScoped<IRepository<UserProfile>, UserProfileRepository>();
+            services.AddScoped<IRepository<UserTask>, UserTaskRepository>();
             services.AddScoped<IReadOnlyRepository<VUserProfile>, VUserProfileRepository>();
 
             return services;

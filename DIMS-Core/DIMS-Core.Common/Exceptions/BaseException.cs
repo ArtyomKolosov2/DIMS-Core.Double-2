@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace DIMS_Core.Common.Exceptions
 {
@@ -7,5 +7,11 @@ namespace DIMS_Core.Common.Exceptions
     /// </summary>
     public abstract class BaseException : Exception
     {
+        protected BaseException()
+        {
+        }
+        protected BaseException(string message) : base(message)
+        {
+        }
     }
 }
