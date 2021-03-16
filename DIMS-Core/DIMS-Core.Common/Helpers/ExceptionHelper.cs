@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DIMS_Core.Common.Helpers
 {
-    public static class RepositoriesExceptionHelper
+    public static class ExceptionHelper
     {
         public static void ThrowIfIdInvalid(int id, string methodName = "")
         {
