@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE DeleteTask
+﻿CREATE PROCEDURE [dbo].[DeleteTask]
 	@TaskId INT
-	AS
-	DELETE FROM Tasks WHERE TaskId = @TaskId
+AS
+	DELETE FROM [Tasks] WHERE TaskId = @TaskId

@@ -1,4 +1,5 @@
-﻿using DIMS_Core.DataAccessLayer.Interfaces;
+using DIMS_Core.Common.Helpers;
+using DIMS_Core.DataAccessLayer.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
@@ -7,8 +8,6 @@ using System.Threading.Tasks;
 namespace DIMS_Core.DataAccessLayer.Repositories
 {
     /// <summary>
-    /// TODO: Task #1
-    /// Implement all methods
     /// Generic Repository
     /// </summary>
     /// <typeparam name="TEntity"></typeparam>
@@ -26,49 +25,40 @@ namespace DIMS_Core.DataAccessLayer.Repositories
 
         public IQueryable<TEntity> GetAll()
         {
-            throw new NotImplementedException();
+            return _set.AsNoTracking();
         }
 
-        public Task<TEntity> GetById(int id)
+        public async Task<TEntity> GetById(int id)
         {
-            if (id == 0)
-            {
-                // TODO: Task #3
-                // Create custom exception for invalid arguments
-                // based on abstract class BaseException
-                // throw new AnyException(string paramName);
-            }
 
-            // TODO: type must be adjusted to entity type accordingly
-            object objectFromDB = null;
+            ExceptionHelper.ThrowIfIdInvalid(id, nameof(GetById));
 
-            if (objectFromDB is null)
-            {
-                // TODO: Task #4
-                // Create custom exception for non existed object in database
-                // based on abstract class BaseException
-                // throw new AnyException(string methodName, string message);
-            }
+            var objectFromDB = await _set.FindAsync(id);
 
-            // RECOMMEND: It's better to create a helper static class for errors instead of throwing them
-            // Ask us if you stucked and it looks ridiculous for you
+            ExceptionHelper.ThrowIfEntityObjectNotExist(objectFromDB, nameof(objectFromDB), nameof(GetById));
 
-            throw new NotImplementedException();
+            return objectFromDB;
         }
 
         public async Task<TEntity> Create(TEntity entity)
         {
-            throw new NotImplementedException();
+            var createdEntity = await _set.AddAsync(entity);
+
+            return createdEntity.Entity;
         }
 
         public TEntity Update(TEntity entity)
         {
-            throw new NotImplementedException();
+            var updatedEntity = _set.Update(entity);
+
+            return updatedEntity.Entity;
         }
 
-        public Task Delete(int id)
+        public async Task Delete(int id)
         {
-            throw new NotImplementedException();
+            var foundedEntity = await GetById(id);
+
+            _set.Remove(foundedEntity);
         }
 
         #region Disposable

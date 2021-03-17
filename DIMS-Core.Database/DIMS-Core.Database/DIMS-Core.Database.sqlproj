@@ -79,6 +79,10 @@
     <Build Include="Procedures\DeleteTask.sql" />
     <Build Include="Functions\GetFullAge.sql" />
     <None Include="Functions\TestScript.sql" />
+    <None Include="SeedData\TaskStateSeedData.sql" />
+    <Build Include="Procedures\SetUserTaskAsSuccess.sql" />
+    <Build Include="Procedures\SetUserTaskAsFail.sql" />
+    <Build Include="Procedures\DeleteUser.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SeedData\UserProfilesSeedData.sql" />

@@ -1,7 +1,7 @@
-﻿using DIMS_Core.DataAccessLayer.Interfaces;
+using DIMS_Core.DataAccessLayer.Interfaces;
 using DIMS_Core.DataAccessLayer.Models;
 using System;
-using System.Threading.Tasks;
+using Task = System.Threading.Tasks.Task;
 
 namespace DIMS_Core.DataAccessLayer.Repositories
 {
@@ -13,11 +13,15 @@ namespace DIMS_Core.DataAccessLayer.Repositories
 
         private IRepository<Direction> _directionRepository;
 
+        private IRepository<UserTask> _userTaskRepository;
+
         private IReadOnlyRepository<VUserProfile> _vUserProfileRepository;
 
         public IRepository<UserProfile> UserProfileRepository => _userProfileRepository ??= new UserProfileRepository(_context);
 
         public IRepository<Direction> DirectionRepository => _directionRepository ??= new DirectionRepository(_context);
+
+        public IRepository<UserTask> UserTaskRepository => _userTaskRepository ??= new UserTaskRepository(_context);
 
         public IReadOnlyRepository<VUserProfile> VUserProfileRepository => _vUserProfileRepository ??= new VUserProfileRepository(_context);
 
