@@ -9,7 +9,11 @@ namespace DIMS_Core.DataAccessLayer.Interfaces
     {
         IRepository<UserProfile> UserProfileRepository { get; }
         IRepository<Direction> DirectionRepository { get; }
+        IRepository<UserTask> UserTaskRepository { get; }
+        IRepository<TaskTrack> TaskTrackRepository { get; }
+        ITaskStateRepository TaskStateRepository { get; }
         IReadOnlyRepository<VUserProfile> VUserProfileRepository { get; }
+        IReadOnlyRepository<VUserTask> VUserTaskRepository { get; }
 
         Task SaveChanges();
     }

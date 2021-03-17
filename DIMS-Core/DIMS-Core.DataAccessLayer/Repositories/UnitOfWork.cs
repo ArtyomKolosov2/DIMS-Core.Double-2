@@ -15,7 +15,13 @@ namespace DIMS_Core.DataAccessLayer.Repositories
 
         private IRepository<UserTask> _userTaskRepository;
 
+        private IRepository<TaskTrack> _taskTrackRepository;
+
+        private ITaskStateRepository _taskStateRepository;
+
         private IReadOnlyRepository<VUserProfile> _vUserProfileRepository;
+
+        private IReadOnlyRepository<VUserTask> _vUserTaskRepository;
 
         public IRepository<UserProfile> UserProfileRepository => _userProfileRepository ??= new UserProfileRepository(_context);
 
@@ -23,7 +29,13 @@ namespace DIMS_Core.DataAccessLayer.Repositories
 
         public IRepository<UserTask> UserTaskRepository => _userTaskRepository ??= new UserTaskRepository(_context);
 
+        public IRepository<TaskTrack> TaskTrackRepository => _taskTrackRepository ??= new TaskTrackRepository(_context);
+
+        public ITaskStateRepository TaskStateRepository => _taskStateRepository ??= new TaskStateRepository(_context);
+
         public IReadOnlyRepository<VUserProfile> VUserProfileRepository => _vUserProfileRepository ??= new VUserProfileRepository(_context);
+
+        public IReadOnlyRepository<VUserTask> VUserTaskRepository => _vUserTaskRepository ??= new VUserTaskRepository(_context);
 
         public UnitOfWork(DIMSCoreContext context)
         {

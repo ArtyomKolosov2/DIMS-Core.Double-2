@@ -54,7 +54,7 @@ namespace DIMS_Core.DataAccessLayer.Repositories
             return updatedEntity.Entity;
         }
 
-        public async Task Delete(int id)
+        public virtual async Task Delete(int id)
         {
             var foundedEntity = await GetById(id);
 

@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace DIMS_Core.DataAccessLayer.Repositories
 {
-    public class UserTaskRepository : Repository<UserTask>
+    public class TaskTrackRepository : Repository<TaskTrack>
     {
-        public UserTaskRepository(DIMSCoreContext context) : base(context)
+        public TaskTrackRepository(DIMSCoreContext context) : base(context)
         {
         }
     }
