@@ -17,9 +17,13 @@ namespace DIMS_Core.DataAccessLayer.Extensions
             services.AddScoped<IRepository<UserTask>, UserTaskRepository>();
             services.AddScoped<IRepository<TaskTrack>, TaskTrackRepository>();
             services.AddScoped<ITaskStateRepository, TaskStateRepository>();
+            services.AddScoped<IRepository<Task>, TaskRepository>();
 
             services.AddScoped<IReadOnlyRepository<VUserProfile>, VUserProfileRepository>();
             services.AddScoped<IReadOnlyRepository<VUserTask>, VUserTaskRepository>();
+            services.AddScoped<IReadOnlyRepository<VTask>, VTaskRepository>();
+            services.AddScoped<IReadOnlyRepository<VUserProgress>, VUserProgressRepository>();
+            services.AddScoped<IReadOnlyRepository<VUserTrack>, VUserTrackRepository>();
 
             return services;
         }

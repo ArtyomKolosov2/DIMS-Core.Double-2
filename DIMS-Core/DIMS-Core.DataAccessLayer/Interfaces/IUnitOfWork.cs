@@ -1,7 +1,6 @@
 using System;
-using System.Threading.Tasks;
 using DIMS_Core.DataAccessLayer.Models;
-using Task = System.Threading.Tasks.Task;
+using ThreadTask = System.Threading.Tasks.Task;
 
 namespace DIMS_Core.DataAccessLayer.Interfaces
 {
@@ -11,10 +10,14 @@ namespace DIMS_Core.DataAccessLayer.Interfaces
         IRepository<Direction> DirectionRepository { get; }
         IRepository<UserTask> UserTaskRepository { get; }
         IRepository<TaskTrack> TaskTrackRepository { get; }
+        IRepository<Task> TaskRepository { get; }
         ITaskStateRepository TaskStateRepository { get; }
         IReadOnlyRepository<VUserProfile> VUserProfileRepository { get; }
         IReadOnlyRepository<VUserTask> VUserTaskRepository { get; }
+        IReadOnlyRepository<VTask> VTaskRepository { get; }
+        IReadOnlyRepository<VUserProgress> VUserProgressRepository { get; }
+        IReadOnlyRepository<VUserTrack> VUserTrackRepository { get; }
 
-        Task SaveChanges();
+        ThreadTask SaveChanges();
     }
 }
